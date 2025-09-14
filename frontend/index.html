@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encurtador de URL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Encurtador de URL</h1>
+        
+        <form id="urlForm">
+            <div class="form-group">
+                <label for="longURL">Digite a URL que deseja encurtar:</label>
+                <input 
+                    type="url" 
+                    id="longURL" 
+                    name="longURL" 
+                    placeholder="https://exemplo.com/url-muito-longa" 
+                    required
+                >
+            </div>
+            
+            <button type="submit" class="btn" id="submitBtn">
+                Encurtar URL
+            </button>
+        </form>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Encurtando sua URL...</p>
+        </div>
+
+        <div class="result" id="result">
+            <h3>✅ URL encurtada com sucesso!</h3>
+            <div class="url-result">
+                <strong>URL Original:</strong><br>
+                <span id="originalUrl"></span>
+            </div>
+            <div class="url-result">
+                <strong>URL Encurtada:</strong><br>
+                <span id="shortUrl"></span>
+                <br><br>
+                <button class="copy-btn" onclick="copyToClipboard(this)">Copiar</button>
+            </div>
+        </div>
+
+        <div class="error" id="error">
+            <strong>Erro:</strong> <span id="errorMessage"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
