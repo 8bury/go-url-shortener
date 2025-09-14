@@ -15,5 +15,5 @@ func main() {
 
 	corsHandler := middleware.CorsMiddleware(api)
 
-	http.ListenAndServe(":"+os.Getenv("PORT"), corsHandler)
+	http.ListenAndServe(":"+os.Getenv("PORT_URL_SHORTENER"), corsHandler)
 }
