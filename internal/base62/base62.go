@@ -16,7 +16,7 @@ func ConvertFromInt(n int) string {
 	return encoded
 }
 
-func ConvertToInt(s string) int {
+func ConvertFromString(s string) int {
 	decoded := 0
 	for _, char := range s {
 		decoded = decoded*62 + strings.Index(base62Digits, string(char))

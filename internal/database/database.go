@@ -32,9 +32,19 @@ func createTable(db *sql.DB) error {
 		created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 	);`
 
+	createIndexSQL := `
+	CREATE INDEX IF NOT EXISTS idx_long_url_short_url ON urls (long_url,short_url);
+	`
+
 	_, err := db.Exec(createTableSQL)
 	if err != nil {
 		log.Fatal("Error creating table:", err)
+		return err
+	}
+
+	_, err = db.Exec(createIndexSQL)
+	if err != nil {
+		log.Fatal("Error creating index:", err)
 		return err
 	}
 	return nil
