@@ -15,5 +15,10 @@ func main() {
 
 	corsHandler := middleware.CorsMiddleware(api)
 
-	http.ListenAndServe(":"+os.Getenv("PORT_URL_SHORTENER"), corsHandler)
+	port := os.Getenv("PORT_URL_SHORTENER")
+	if port == "" {
+		port = "8081"
+	}
+
+	http.ListenAndServe(":"+port, corsHandler)
 }
