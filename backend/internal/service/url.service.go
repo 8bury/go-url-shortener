@@ -43,7 +43,7 @@ func (s *URLService) CreateURL(longURL string) (string, error) {
 		}
 	}
 
-	salt := rand.Intn(100) * 23 * 7
+	salt := rand.Intn(100)*23*7 + 1
 	numericID *= salt
 
 	shortURL := base62.ConvertFromInt(int(numericID))
